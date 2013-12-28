@@ -1,0 +1,49 @@
+package org.db.ddbserver;
+
+public class Handler {
+	public Handler() {
+		
+	}
+	
+	/**
+	 * 
+	 * @param r1
+	 * @param r2
+	 * @param s
+	 * 			select_int book.copies>5000 from book
+	 * @return
+	 */
+	public SqlResult join(SqlResult r1, SqlResult r2, String s) {
+		
+	}
+	
+	/**
+	 * 
+	 * @param r
+	 * @param s
+	 * @return
+	 */
+	public SqlResult project(SqlResult r, String s) {
+		
+	}
+	
+	/**
+	 * 
+	 * @param table
+	 * @param where
+	 * @return
+	 */
+	public SqlResult select(String table, String where) {
+		
+	}
+	
+	/**
+	 * 
+	 * @param r1
+	 * @param r2
+	 * @return
+	 */
+	public SqlResult union(SqlResult r1, SqlResult r2) {
+		
+	}
+}

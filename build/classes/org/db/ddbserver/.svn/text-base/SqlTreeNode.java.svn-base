@@ -1,0 +1,132 @@
+package org.db.ddbserver;
+
+/**
+ * tree node
+ * @author Administrator
+ *
+ */
+public class SqlTreeNode {
+	private int global_id;
+	private String type;
+	private String id;
+	private String detail;
+	private String tablename;
+	private boolean isLeaf;
+	private SqlTreeNode parent;
+	private SqlTreeNode left;
+	private SqlTreeNode right;
+	private String construction;
+	
+	public SqlTreeNode() {
+		type = "";
+		detail = "";
+		tablename = "";
+		id = "";
+		isLeaf = true;
+		parent = null;
+		left = null;
+		right = null;
+		construction = "";
+	}
+
+	public SqlTreeNode(SqlTreeNode t) {
+		type = t.type;
+		detail = t.detail;
+		tablename = t.tablename;
+		id = t.id;
+		isLeaf = t.isLeaf;
+		parent = t.parent;
+		left = t.left;
+		right = t.right;
+		construction = t.construction;
+	}
+	
+	public String getConstruction() {
+		return construction;
+	}
+
+	public void setConstruction(String construction) {
+		this.construction = construction;
+	}
+
+	public int getGlobal_id() {
+		return global_id;
+	}
+
+	public void setGlobal_id(int global_id) {
+		this.global_id = global_id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
+	public String getTablename() {
+		return tablename;
+	}
+
+
+
+	public void setTablename(String tablename) {
+		this.tablename = tablename;
+	}
+
+
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public boolean isLeaf() {
+		return isLeaf;
+	}
+
+	public void setLeaf(boolean isLeaf) {
+		this.isLeaf = isLeaf;
+	}
+
+	public SqlTreeNode getParent() {
+		return parent;
+	}
+
+	public void setParent(SqlTreeNode parent) {
+		this.parent = parent;
+	}
+
+	public SqlTreeNode getLeft() {
+		return left;
+	}
+
+	public void setLeft(SqlTreeNode left) {
+		this.left = left;
+	}
+
+	public SqlTreeNode getRight() {
+		return right;
+	}
+
+	public void setRight(SqlTreeNode right) {
+		this.right = right;
+	}
+	
+}

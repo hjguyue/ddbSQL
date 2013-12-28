@@ -1,0 +1,63 @@
+package org.db.ddbserver;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+
+
+public class Test {
+
+	/**
+	 * @param args
+	 * @throws ParseException 
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SQLParser1 sp = new SQLParser1();
+		List<String> ls=new ArrayList<String>();
+      ls.add("select * " +
+        		"from Customer");    
+       ls.add("select publisher.name  " +
+        		"from Publisher where publisher.id > 105000");
+         ls.add("select Book.title  " +
+        		"from Book  " +
+        		"where copies > 5000"); 
+        ls.add("select customer_id, quantity " +
+        		"from Orders " +
+        		"where quantity < 8");
+        ls.add("select  Book.title,Book.copies, Publisher.name,Publisher.nation " +
+        		"from Book,Publisher " +
+        		"where Book.id > 21000 and Publisher.id > 100 and Book.publisher_id=Publisher.id and Publisher.nation='USA' and Book.copies > 1000");
+        ls.add("select Customer.name,Orders.quantity " +
+        		"from Customer,Orders " +
+        		"where 		Customer.id=Orders.customer_id and customer.id> 1000000");
+        ls.add("Select 		Customer.name ,Orders.quantity,Book.title " +
+        		"from 		Customer,Orders,Book " +
+        		"where 		Customer.id=Orders.customer_id and  Book.id=Orders.book_id and  Customer.rank=1 and Book.copies>5000");
+
+        int i = 0;
+        for(String sql:ls){
+        	i++;
+        	SqlSentence s = new SqlSentence(sql);
+            //System.out.println(new SQLParser(sql));
+            //System.out.println(sp.parseSql(sql));
+        	SqlTree st = new SqlTree();
+        	//st.getRoot().setDetail("SqlTree #" + i);
+        	st.buildTree(s);
+        	//st.printTree(st.getRoot());
+        	//st.printTree1(st.getRoot(), 0);
+        	
+        	System.out.println("SqlTree #" + i);
+        	st.setGlobalId(st.getRoot());
+        	st.printCommand(st.getRoot());
+        }
+    }
+
+
+}
